@@ -1,0 +1,32 @@
+---
+title: "Problem Set 3 - POLS6394"
+author: "Tom Hanna"
+date: "10/29/2020"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Problem Set 3
+
+#Chapter 6
+
+4. a. iii - In order to minimize the equation with increasing lambda, the B coefficients must converge to 0.
+
+b. ii - Decrease then increase. With lamba = 0, test RSS is high because of overfitting. As lambda increases
+overfitting is reduce to a point until the increased shrinkage becomes inefficient.
+
+c. iv - As lambda increases, the B coefficients converge on zero. All betas = 0 is essentially a horizontal line with no variance.
+
+d. iii - Increasing lambda decreases flexibility, which increases bias. 
+
+e. v - irreducible error is a horizontal line, a constant, that can not be improved regardless of model fit. 
+
+
+
+
+```{r cars}
+
+```
