@@ -1,0 +1,361 @@
+---
+title: "Problem  Set 1"
+author: "Tom Hanna"
+date: "9/28/2020"
+output:
+  pdf_document: default
+  html_document: default
+  word_document: default
+---
+
+##Chapter 2
+
+Answer 1:  
+
+    a) A more flexible approach will give a better fit. With the larger sample size, there is less concern that noise will result in overfitting. Better.  
+    
+    b) With the smaller sample size, which implies more noise, there is an expectation that using a large number of predictors and a flexible approach will result in overfitting. It would be better to use a less flexible approach, avoiding overfitting. Worse.  
+    
+    c) Since the relationship is non-linear, a flexible approach is needed to better fit the data and it is worth the overfitting risk. Better.  
+    
+    d) This is a classic case of a high noise to signal ratio, so a flexible approach will result in overfitting. Worse.
+    
+Answer 7:
+
+    a) obs 1: 3
+       obs 2: 2
+       obs 3: sqrt(1^2 + 3^2) = sqrt(10)
+       obs 4: sqrt(1^2 + 2^2) = sqrt(5)
+       obs 5: sqrt(-1^2 + 1^2) = sqrt(2)
+       obs 6: sqrt(1^2 + 1^2 + 1^2) = sqrt(3)  
+   b) The nearest neighbor with a distance sqrt(2) is observation 5, Green.    
+   c) The three nearest neighbors with distance sqrt(2), 2, and sqrt(3) are observations 5, 2, and 6. Green, Red, and Red.
+   d) Small. A higher value for K would produce a less flexible, more linear boundary (p.40 in the text).
+   
+##Chapter 3
+
+Answer 3:  
+
+    a) iii - The coefficient for the interaction terms show that males earn more than females with the same GPA and IQ, but the GPA has to be high enough to overcome the coefficient for the GPA term. The model is Salary = 50 + 20*GPA + 35*gender + .07*IQ + 0.01*(GPA*IQ) + 10*(GPA*gender) where female gender = 1 and male gender = 0. So, GPA must be high enough to overcome the female advantage of 35 thousand.  
+    b) Salary = 50 + 20*4 + 35*1 + .07*110 + .01*110*4 + 10*4*1 = 50+80+35+7.7+4.4-40 = 137.1 or $137,100  
+    c_ False. We would have to know the standard error, so we could compute significance. If the standard error is also very small, the result could be significant.  
+
+
+        
+
+
+```{r}
+gc()
+rm(list=ls())
+options(scipen = 999)
+
+
+# Chapter 3 Lab: Linear Regression
+setwd("C:/R Studio Files/POLS6394-Machine-Learning/Lab 3")
+library(MASS)
+library(ISLR)
+
+
+Auto <- read.csv("C:/R Studio Files/POLS6394-Machine-Learning/datasets/Auto.csv")
+View(Auto)
+
+#I was getting an error in pairs because of the nonnumeric vectors horsepower
+#and names, so I used the data.matrix command to convert everything to numeric.
+#Note that as.numeric(horsepower) produces different results than horsepower,
+#because there are three NA rows.
+
+AutoMatrix <- data.matrix(Auto, rownames.force = NA)
+
+#Problem 9
+
+#a
+
+pairs(AutoMatrix)
+
+#b
+
+cor(AutoMatrix)
+
+Auto$hp.num <- as.numeric(Auto$horsepower)
+
+names(Auto)
+
+#c
+
+modelc <- lm(mpg ~ cylinders + displacement + hp.num + weight + acceleration + year + origin, data = Auto)
+summary(modelc)
+
+#Intercept, displacement, weight, year, and origin are statistically significant to the .05 level or higher. Displacement is positively correlated with MPG, surprisingly. For each unit of displacement, the MPG increases by .02 MPG. Year is positively correlated with MPG. For each newer model year, the MPG increases by 0.75 miles per gallon. For each unit of weight, the MPG decreases by -0.006474 MPG. 
+
+#d
+
+par(mfrow=c(2,2))
+plot(modelc)
+
+#e
+
+#Cylinders and displacement are related design factors, with larger engines typically having more cylinders. But for the same size engines, adding additional cylinders should allow for more air mixture allowing the fuel to burn more efficiently. Controlling for the other variables. (*Note: This is actually probably a bad idea since horsepower is a function of cylinders and displacement, acceleration is a function of horsepower and weight, etc. There is a real danger of overfitting here.*)
+
+modelcyldisp <- lm(mpg ~ cylinders*displacement + hp.num + weight + acceleration + year + origin, data = Auto)
+summary(modelcyldisp)
+
+#The interaction is statistically significant. Interestingly, without the interaction effect increasing displacement improves gas mileage, which does not make sense. With the interaction effect, the effacect of displacement is reversed and begins to make sense.
+
+#Horsepower has an odd distribution in the scatterplot. I suspect this has to do with an interaction between horsepower and weight or horsepower and acceleration. Again using all the variables and ignoring the danger of overfitting.
+
+modelwthp <- lm(mpg ~ weight + hp.num + cylinders + displacement + acceleration + year + origin + weight:hp.num, data = Auto)
+summary(modelwthp)
+
+#The effect is significant. Increased weight and increased horsepower reduce gas mileage all else being equal, but the interaction of increased horsepower with increased weight improves gas mileage. 
+
+#f
+
+modeltrans1 <- lm(mpg ~ sqrt(displacement) + sqrt(weight) + acceleration^2 + year + origin, data = Auto)
+summary(modeltrans1)
+
+par(mfrow=c(2,2))
+plot(modeltrans1)
+
+#The transformation imporved R-squared marginally, but did not improve the residuals or leverage. 
+
+modeltrans2 <- lm(log(mpg) ~ sqrt(hp.num) + log(displacement) + log(weight) + acceleration^2 + year + origin, data = Auto)
+summary(modeltrans2)
+
+#This transformation improved R-squared further, made a small improvement to residuals, and made some improvement to leverage.  
+
+par(mfrow=c(2,2))
+plot(modeltrans2)
+
+
+#9 - g
+
+#These models run several hundred pages, so I am just providing the code and results
+
+
+#model4 <- lm(mpg ~ cylinders*displacement*hp.num*weight*acceleration*year*orig#in + as.factor(name), data = Auto)
+#summary(model4)
+
+#Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+#Residual standard error: 0.466 on 1 degrees of freedom
+#  (5 observations deleted due to missingness)
+#Multiple R-squared:      1,	Adjusted R-squared:  0.9964 
+#F-statistic: 281.3 on 390 and 1 DF,  p-value: 0.04751
+
+#model4 used the "names" variable as.factor, which wasn't allowed in the other questions, but the question said "anything is fair game." Without using that variable, I got a slightly lower R-squared
+
+#model6 <- lm(mpg ~ cylinders*displacement*horsepower*weight*acceleration*year*origin, data = Auto)
+#summary(model6)
+
+#Residual standard error: 1.042 on 6 degrees of freedom
+#Multiple R-squared:  0.9997,	Adjusted R-squared:  0.9823 
+#F-statistic: 57.25 on 390 and 6 DF,  p-value: 0.0000234
+
+# Chapter 3 Lab: Linear Regression
+setwd("C:/R Studio Files/POLS6394-Machine-Learning/Lab 3")
+library(MASS)
+library(ISLR)
+
+
+##Problem 13
+
+rm(list=ls())
+options(scipen = 999)
+
+set.seed(1735)
+
+#a
+
+x <- rnorm(100)
+
+#b
+
+eps <- rnorm(100,mean = 0,sd = sqrt(0.25))
+
+#c
+
+y <- -1 + 0.5*x + eps
+
+#The vector length is 100. B_0 = -1 and B_1 = 0.5
+
+#d
+
+plot(x,y)
+
+#There is a positive linear relationship between x and y, with what appears to be a normal distribution and no outliers, as expected.
+
+#e
+
+model13e <- lm(y ~ x)
+summary(model13e)
+
+#The intercept, B_0, is fairly close to the original equation at -1.06. The B_1 coefficient, 0.4, is different than expected. Both coefficients are statistically significant.
+
+#f
+
+
+plot(x, y)
+abline(model13e, lwd=5, col=2)
+abline(-1, 0.5, lwd=5, col=1)
+legend(-1, legend = c("Model 13e", "Original equation"), col=2:1, lwd=5)
+
+#g 
+x2 <- x^2
+
+model13g <- lm(y ~ x + x2)
+summary(model13g)
+
+plot(x, y)
+abline(model13e, lwd=5, col=3)
+abline(model13g, lwd=5, col=2)
+abline(-1, 0.5, lwd=5, col=1)
+legend(-1, legend = c("Model 13e","Model 13g", "Original equation"), col=3:1, lwd=5)
+
+
+
+#The R-squared, regular and adjusted, for the polynomial model is slightly lower than the simpler model.
+#The fitted lines are similar. The effect of X^2 is small in magnitude and not significant.
+
+confint(model13e)
+
+#h
+
+rm(list=ls())
+options(scipen = 999)
+
+set.seed(1735)
+
+#a
+
+x <- rnorm(100)
+
+#b
+
+eps <- rnorm(100,mean = 0,sd = sqrt(0.05))
+
+#c
+
+y <- -1 + 0.5*x + eps
+
+#The vector length is 100. B_0 = -1 and B_1 = 0.5
+
+#d
+
+plot(x,y)
+
+#There is a positive linear relationship between x and y, with what appears to be a normal distribution and no outliers, as expected.
+
+#e
+
+model13he <- lm(y ~ x)
+summary(model13he)
+
+#The intercept, B_0, is closer to the original equation at -1.03. The B_1 coefficient, 0.45, is different than expected, but closer than in the first simulation. Both coefficients are statistically significant.
+
+#f
+
+
+plot(x, y)
+abline(model13he, lwd=5, col=2)
+abline(-1, 0.5, lwd=5, col=1)
+legend(-1, legend = c("Model 13e", "Original equation"), col=2:1, lwd=5)
+
+#g 
+x2 <- x^2
+
+model13hg <- lm(y ~ x + x2)
+summary(model13hg)
+
+plot(x, y)
+abline(model13he, lwd=1, col=3)
+abline(model13hg, lwd=1, col=2)
+abline(-1, 0.5, lwd=1, col=1)
+legend(-1, legend = c("Model 13e","Model 13g", "Original equation"), col=3:1, lwd=1)
+
+
+
+#The multiple R-squared is higher, but the adjusted R-squared is lower in the polynomial model. The Residual Standard Error is higher in the polynomial model. The X^2 term is not significant. 
+#The fitted lines are nearly indistinguishable.
+
+confint(model13he)
+
+
+#i
+
+rm(list=ls())
+options(scipen = 999)
+
+set.seed(1735)
+
+#a
+
+x <- rnorm(100)
+
+#b
+
+eps <- rnorm(100,mean = 0,sd = sqrt(0.75))
+
+#c
+
+y <- -1 + 0.5*x + eps
+
+#The vector length is 100. B_0 = -1 and B_1 = 0.5
+
+#d
+
+plot(x,y)
+
+#There is a positive linear relationship between x and y. There are no outliers, but the data is not well grouped.
+
+#e
+
+model13ie <- lm(y ~ x)
+summary(model13ie)
+
+#The intercept, B_0, at -1.10 is different than the original equation. The B_1 coefficient, 0.32, is much different than expected. Both coefficients are statistically significant.
+
+#f
+
+
+plot(x, y)
+abline(model13ie, lwd=5, col=2)
+abline(-1, 0.5, lwd=5, col=1)
+legend(-1, legend = c("Model 13e", "Original equation"), col=2:1, lwd=5)
+
+#g 
+x2 <- x^2
+
+model13ig <- lm(y ~ x + x2)
+summary(model13ig)
+
+plot(x, y)
+abline(model13ie, lwd=5, col=3)
+abline(model13ig, lwd=5, col=2)
+abline(-1, 0.5, lwd=5, col=1)
+legend(-1, legend = c("Model 13e","Model 13g", "Original equation"), col=3:1, lwd=5)
+
+
+#The multiple R-squared is better, but the adjusted R-squared is worse for the polynomial model. The RSE is worse for the polynomial model. The X^2 coefficient is not significant. 
+
+confint(model13ie)
+
+#j
+
+#confint(model13e)
+#                 2.5 %     97.5 %
+#   (Intercept) -1.1464580 -0.9692968
+#    x            0.3054538  0.4905429
+
+#confint(model13he)
+#                    2.5 %     97.5 %
+#    (Intercept) -1.0654980 -0.9862691
+#    x            0.4129963  0.4957707
+
+#  confint(model13ie)
+#              2.5 %     97.5 %
+#(Intercept) -1.253673 -0.9468206
+#x            0.163036  0.4836198
+
+#The fit is best on the model with the least noise and widest on the model with the most noise.
+```
+

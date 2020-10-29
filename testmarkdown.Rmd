@@ -1,0 +1,63 @@
+---
+title: "Test"
+author: "Tom Hanna"
+date: "10/1/2020"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##Chapter 2
+
+Answer 1:  
+
+    a) A more flexible approach will give a better fit. With the larger sample size, there is less concern that noise will result in overfitting. Better.  
+    
+    b) With the smaller sample size, which implies more noise, there is an expectation that using a large number of predictors and a flexible approach will result in overfitting. It would be better to use a less flexible approach, avoiding overfitting. Worse.  
+    
+    c) Since the relationship is non-linear, a flexible approach is needed to better fit the data and it is worth the overfitting risk. Better.  
+    
+    d) This is a classic case of a high noise to signal ratio, so a flexible approach will result in overfitting. Worse.
+    
+    Answer 7:
+
+    a) obs 1: 3
+       obs 2: 2
+       obs 3: sqrt(1^2 + 3^2) = sqrt(10)
+       obs 4: sqrt(1^2 + 2^2) = sqrt(5)
+       obs 5: sqrt(-1^2 + 1^2) = sqrt(2)
+       obs 6: sqrt(1^2 + 1^2 + 1^2) = sqrt(3)  
+   b) The nearest neighbor with a distance sqrt(2) is observation 5, Green.    
+   c) The three nearest neighbors with distance sqrt(2), 2, and sqrt(3) are observations 5, 2, and 6. Green, Red, and Red.
+   d) Small. A higher value for K would produce a less flexible, more linear boundary (p.40 in the text).
+   
+##Chapter 3
+
+Answer 3:  
+   
+    a) iii - The coefficient for the interaction terms show that males earn more than females with the same GPA and IQ, but the GPA has to be high enough to overcome the coefficient for the GPA term. The model is Salary = 50 + 20*GPA + 35*gender + .07*IQ + 0.01*(GPA*IQ) + 10*(GPA*gender) where female gender = 1 and male gender = 0. So, GPA must be high enough to overcome the female advantage of 35 thousand.  
+    b) Salary = 50 + 20*4 + 35*1 + .07*110 + .01*110*4 + 10*4*1 = 50+80+35+7.7+4.4-40 = 137.1 or $137,100  
+    c_ False. We would have to know the standard error, so we could compute significance. If the standard error is also very small, the result could be significant.  
+
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
