@@ -5,9 +5,7 @@ date: "10/29/2020"
 output: pdf_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+
 
 ## Problem Set 3
 
@@ -25,8 +23,16 @@ d. iii - Increasing lambda decreases flexibility, which increases bias.
 e. v - irreducible error is a horizontal line, a constant, that can not be improved regardless of model fit. 
 
 
+```{r}
 
+College <- read.csv("C:/R Studio Files/POLS6394-Machine-Learning/Problem Set 3/College.csv")
+View(College)
 
-```{r cars}
+train.size = dim(College)[1] / 2
+train = sample(1:dim(College)[1], train.size)
+test = -train
+Train.college = College[train, ]
+Test.college = College[test, ]
+
 
 ```
