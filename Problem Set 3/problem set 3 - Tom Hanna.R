@@ -82,6 +82,16 @@ mean((Test.college[, "Apps"] - model.pls.pred)^2)
 
 #g - Ridge, Lasso, and PLS provide accurate predictions. PCR has a higher error rate. 
 
+rm(list = ls())
+setwd("C:/R Studio Files/POLS6394-Machine-Learning/Problem Set 3")
+
 library(MASS)
 Boston <- Boston
+
+train.size = dim(Boston)[1] / 2
+train = sample(1:dim(Boston)[1], train.size)
+test = -train
+Train.Boston = Boston[train, ]
+Test.Boston = Boston[test, ]
+
 
