@@ -1,0 +1,1084 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Problem Set 3 - POLS6394},
+  pdfauthor={Tom Hanna},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\title{Problem Set 3 - POLS6394}
+\author{Tom Hanna}
+\date{10/29/2020}
+
+\begin{document}
+\maketitle
+
+\hypertarget{problem-set-3}{%
+\subsection{Problem Set 3}\label{problem-set-3}}
+
+\#Chapter 6
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\item
+  \begin{enumerate}
+  \def\labelenumii{\alph{enumii}.}
+  \tightlist
+  \item
+    iii - In order to minimize the equation with increasing lambda, the
+    B coefficients must converge to 0.
+  \end{enumerate}
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{1}
+\item
+  ii - Decrease then increase. With lamba = 0, test RSS is high because
+  of overfitting. As lambda increases overfitting is reduce to a point
+  until the increased shrinkage becomes inefficient.
+\item
+  iv - As lambda increases, the B coefficients converge on zero. All
+  betas = 0 is essentially a horizontal line with no variance.
+\item
+  iii - Increasing lambda decreases flexibility, which increases bias.
+\item
+  v - irreducible error is a horizontal line, a constant, that can not
+  be improved regardless of model fit.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{rm}\NormalTok{(}\DataTypeTok{list =} \KeywordTok{ls}\NormalTok{())}
+\KeywordTok{setwd}\NormalTok{(}\StringTok{"C:/R Studio Files/POLS6394-Machine-Learning/Problem Set 3"}\NormalTok{)}
+
+\CommentTok{#ISLR, Chapter 6, #4, #9, #11}
+\CommentTok{#ISLR, Chapter 7, #3, #4, #9, #10}
+
+\NormalTok{College <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"C:/R Studio Files/POLS6394-Machine-Learning/Problem Set 3/College.csv"}\NormalTok{)}
+\KeywordTok{names}\NormalTok{(College)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "X"           "Private"     "Apps"        "Accept"      "Enroll"     
+##  [6] "Top10perc"   "Top25perc"   "F.Undergrad" "P.Undergrad" "Outstate"   
+## [11] "Room.Board"  "Books"       "Personal"    "PhD"         "Terminal"   
+## [16] "S.F.Ratio"   "perc.alumni" "Expend"      "Grad.Rate"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{75}\NormalTok{)}
+
+\CommentTok{#9a}
+
+\NormalTok{train.size =}\StringTok{ }\KeywordTok{dim}\NormalTok{(College)[}\DecValTok{1}\NormalTok{] }\OperatorTok{/}\StringTok{ }\DecValTok{2}
+\NormalTok{train =}\StringTok{ }\KeywordTok{sample}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\KeywordTok{dim}\NormalTok{(College)[}\DecValTok{1}\NormalTok{], train.size)}
+\NormalTok{test =}\StringTok{ }\OperatorTok{-}\NormalTok{train}
+\NormalTok{Train.college =}\StringTok{ }\NormalTok{College[train, ]}
+\NormalTok{Test.college =}\StringTok{ }\NormalTok{College[test, ]}
+
+\NormalTok{model1 <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(Apps }\OperatorTok{~}\StringTok{ }\NormalTok{Private }\OperatorTok{+}\StringTok{ }\NormalTok{Accept }\OperatorTok{+}\StringTok{ }\NormalTok{Enroll }\OperatorTok{+}\StringTok{ }\NormalTok{Top10perc }\OperatorTok{+}\StringTok{ }\NormalTok{Top25perc }\OperatorTok{+}\StringTok{ }\NormalTok{F.Undergrad }\OperatorTok{+}\StringTok{ }\NormalTok{P.Undergrad }\OperatorTok{+}\StringTok{ }\NormalTok{Outstate }\OperatorTok{+}
+\StringTok{                 }\NormalTok{Room.Board }\OperatorTok{+}\StringTok{ }\NormalTok{Books }\OperatorTok{+}\StringTok{ }\NormalTok{Personal }\OperatorTok{+}\StringTok{ }\NormalTok{PhD }\OperatorTok{+}\StringTok{ }\NormalTok{Terminal }\OperatorTok{+}\StringTok{ }\NormalTok{S.F.Ratio }\OperatorTok{+}\StringTok{ }\NormalTok{perc.alumni }\OperatorTok{+}\StringTok{ }\NormalTok{Expend }\OperatorTok{+}\StringTok{ }\NormalTok{Grad.Rate,}
+             \DataTypeTok{data =}\NormalTok{ Train.college)}
+\NormalTok{model1.pred <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(model1, Test.college)}
+\KeywordTok{mean}\NormalTok{((Test.college[, }\StringTok{"Apps"}\NormalTok{] }\OperatorTok{-}\StringTok{ }\NormalTok{model1.pred)}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1672201
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#b - Test RSS is 1672201}
+
+\KeywordTok{library}\NormalTok{(glmnet)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'glmnet' was built under R version 4.0.3
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: Matrix
+\end{verbatim}
+
+\begin{verbatim}
+## Loaded glmnet 4.0-2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mat.train <-}\StringTok{ }\KeywordTok{model.matrix}\NormalTok{(Apps }\OperatorTok{~}\StringTok{ }\NormalTok{Private }\OperatorTok{+}\StringTok{ }\NormalTok{Accept }\OperatorTok{+}\StringTok{ }\NormalTok{Enroll }\OperatorTok{+}\StringTok{ }\NormalTok{Top10perc }\OperatorTok{+}\StringTok{ }\NormalTok{Top25perc }\OperatorTok{+}\StringTok{ }\NormalTok{F.Undergrad }\OperatorTok{+}\StringTok{ }\NormalTok{P.Undergrad }\OperatorTok{+}\StringTok{ }\NormalTok{Outstate }\OperatorTok{+}
+\StringTok{                              }\NormalTok{Room.Board }\OperatorTok{+}\StringTok{ }\NormalTok{Books }\OperatorTok{+}\StringTok{ }\NormalTok{Personal }\OperatorTok{+}\StringTok{ }\NormalTok{PhD }\OperatorTok{+}\StringTok{ }\NormalTok{Terminal }\OperatorTok{+}\StringTok{ }\NormalTok{S.F.Ratio }\OperatorTok{+}\StringTok{ }\NormalTok{perc.alumni }\OperatorTok{+}\StringTok{ }\NormalTok{Expend }\OperatorTok{+}\StringTok{ }\NormalTok{Grad.Rate,}
+                          \DataTypeTok{data =}\NormalTok{ Train.college)}
+\NormalTok{mat.test <-}\StringTok{ }\KeywordTok{model.matrix}\NormalTok{(Apps }\OperatorTok{~}\StringTok{ }\NormalTok{Private }\OperatorTok{+}\StringTok{ }\NormalTok{Accept }\OperatorTok{+}\StringTok{ }\NormalTok{Enroll }\OperatorTok{+}\StringTok{ }\NormalTok{Top10perc }\OperatorTok{+}\StringTok{ }\NormalTok{Top25perc }\OperatorTok{+}\StringTok{ }\NormalTok{F.Undergrad }\OperatorTok{+}\StringTok{ }\NormalTok{P.Undergrad }\OperatorTok{+}\StringTok{ }\NormalTok{Outstate }\OperatorTok{+}
+\StringTok{                             }\NormalTok{Room.Board }\OperatorTok{+}\StringTok{ }\NormalTok{Books }\OperatorTok{+}\StringTok{ }\NormalTok{Personal }\OperatorTok{+}\StringTok{ }\NormalTok{PhD }\OperatorTok{+}\StringTok{ }\NormalTok{Terminal }\OperatorTok{+}\StringTok{ }\NormalTok{S.F.Ratio }\OperatorTok{+}\StringTok{ }\NormalTok{perc.alumni }\OperatorTok{+}\StringTok{ }\NormalTok{Expend }\OperatorTok{+}\StringTok{ }\NormalTok{Grad.Rate,}
+                         \DataTypeTok{data =}\NormalTok{ Test.college)}
+\NormalTok{grid <-}\StringTok{ }\DecValTok{10} \OperatorTok{^}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{-2}\NormalTok{, }\DataTypeTok{length=}\DecValTok{100}\NormalTok{)}
+\NormalTok{model.ridge <-}\StringTok{ }\KeywordTok{cv.glmnet}\NormalTok{(mat.train, Train.college[, }\StringTok{"Apps"}\NormalTok{], }\DataTypeTok{alpha=}\DecValTok{0}\NormalTok{, }\DataTypeTok{lambda=}\NormalTok{grid, }\DataTypeTok{thresh=}\FloatTok{1e-12}\NormalTok{)}
+\NormalTok{lambda1 <-}\StringTok{ }\NormalTok{model.ridge}\OperatorTok{$}\NormalTok{lambda.min}
+\NormalTok{lambda1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 14.17474
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{model.ridge.pred <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(model.ridge, }\DataTypeTok{newx=}\NormalTok{mat.test, }\DataTypeTok{s=}\NormalTok{lambda1)}
+\KeywordTok{mean}\NormalTok{((Test.college[, }\StringTok{"Apps"}\NormalTok{] }\OperatorTok{-}\StringTok{ }\NormalTok{model.ridge.pred)}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1732682
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#c - Test error is 1732682}
+
+\NormalTok{model.lasso <-}\StringTok{ }\KeywordTok{cv.glmnet}\NormalTok{(mat.train, Train.college[, }\StringTok{"Apps"}\NormalTok{], }\DataTypeTok{alpha=}\DecValTok{1}\NormalTok{, }\DataTypeTok{lambda=}\NormalTok{grid, }\DataTypeTok{thresh=}\FloatTok{1e-12}\NormalTok{)}
+\NormalTok{lambda2 <-}\StringTok{ }\NormalTok{model.lasso}\OperatorTok{$}\NormalTok{lambda.min}
+\NormalTok{lambda2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 9.326033
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{model.lasso.pred <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(model.lasso, }\DataTypeTok{newx=}\NormalTok{mat.test, }\DataTypeTok{s=}\NormalTok{lambda2)}
+\KeywordTok{mean}\NormalTok{((Test.college[, }\StringTok{"Apps"}\NormalTok{] }\OperatorTok{-}\StringTok{ }\NormalTok{model.lasso.pred)}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1731804
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Test error is 1731804}
+\CommentTok{#Coefficients:}
+
+\NormalTok{model.lasso <-}\StringTok{ }\KeywordTok{glmnet}\NormalTok{(}\KeywordTok{model.matrix}\NormalTok{(Apps }\OperatorTok{~}\StringTok{ }\NormalTok{Private }\OperatorTok{+}\StringTok{ }\NormalTok{Accept }\OperatorTok{+}\StringTok{ }\NormalTok{Enroll }\OperatorTok{+}\StringTok{ }\NormalTok{Top10perc }\OperatorTok{+}\StringTok{ }\NormalTok{Top25perc }\OperatorTok{+}\StringTok{ }\NormalTok{F.Undergrad }\OperatorTok{+}\StringTok{ }\NormalTok{P.Undergrad }\OperatorTok{+}\StringTok{ }\NormalTok{Outstate }\OperatorTok{+}
+\StringTok{                                    }\NormalTok{Room.Board }\OperatorTok{+}\StringTok{ }\NormalTok{Books }\OperatorTok{+}\StringTok{ }\NormalTok{Personal }\OperatorTok{+}\StringTok{ }\NormalTok{PhD }\OperatorTok{+}\StringTok{ }\NormalTok{Terminal }\OperatorTok{+}\StringTok{ }\NormalTok{S.F.Ratio }\OperatorTok{+}\StringTok{ }\NormalTok{perc.alumni }\OperatorTok{+}\StringTok{ }\NormalTok{Expend }\OperatorTok{+}\StringTok{ }\NormalTok{Grad.Rate,}
+                                \DataTypeTok{data =}\NormalTok{ College), College[, }\StringTok{"Apps"}\NormalTok{], }\DataTypeTok{alpha=}\DecValTok{1}\NormalTok{)}
+\KeywordTok{predict}\NormalTok{(model.lasso, }\DataTypeTok{s=}\NormalTok{lambda2, }\DataTypeTok{type=}\StringTok{"coefficients"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 19 x 1 sparse Matrix of class "dgCMatrix"
+##                         1
+## (Intercept) -5.284919e+02
+## (Intercept)  .           
+## PrivateYes  -4.813682e+02
+## Accept       1.528758e+00
+## Enroll      -4.372593e-01
+## Top10perc    4.269076e+01
+## Top25perc   -8.657751e+00
+## F.Undergrad  2.751930e-05
+## P.Undergrad  4.227091e-02
+## Outstate    -7.488284e-02
+## Room.Board   1.416735e-01
+## Books        .           
+## Personal     2.147966e-02
+## PhD         -7.456087e+00
+## Terminal    -3.056619e+00
+## S.F.Ratio    1.136791e+01
+## perc.alumni -5.334028e-01
+## Expend       7.432130e-02
+## Grad.Rate    7.032033e+00
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(pls)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'pls' was built under R version 4.0.3
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'pls'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:stats':
+## 
+##     loadings
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{model.pcr <-}\StringTok{ }\KeywordTok{pcr}\NormalTok{(Apps }\OperatorTok{~}\StringTok{ }\NormalTok{Private }\OperatorTok{+}\StringTok{ }\NormalTok{Accept }\OperatorTok{+}\StringTok{ }\NormalTok{Enroll }\OperatorTok{+}\StringTok{ }\NormalTok{Top10perc }\OperatorTok{+}\StringTok{ }\NormalTok{Top25perc }\OperatorTok{+}\StringTok{ }\NormalTok{F.Undergrad }\OperatorTok{+}\StringTok{ }\NormalTok{P.Undergrad }\OperatorTok{+}\StringTok{ }\NormalTok{Outstate }\OperatorTok{+}
+\StringTok{                     }\NormalTok{Room.Board }\OperatorTok{+}\StringTok{ }\NormalTok{Books }\OperatorTok{+}\StringTok{ }\NormalTok{Personal }\OperatorTok{+}\StringTok{ }\NormalTok{PhD }\OperatorTok{+}\StringTok{ }\NormalTok{Terminal }\OperatorTok{+}\StringTok{ }\NormalTok{S.F.Ratio }\OperatorTok{+}\StringTok{ }\NormalTok{perc.alumni }\OperatorTok{+}\StringTok{ }\NormalTok{Expend }\OperatorTok{+}\StringTok{ }\NormalTok{Grad.Rate,}
+                 \DataTypeTok{data =}\NormalTok{ Train.college, }\DataTypeTok{scale=}\NormalTok{T, }\DataTypeTok{validation=}\StringTok{"CV"}\NormalTok{)}
+\KeywordTok{validationplot}\NormalTok{(model.pcr, }\DataTypeTok{val.type=}\StringTok{"MSEP"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{problem-set-3---Tom-Hanna_files/figure-latex/unnamed-chunk-1-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{model.pcr.pred <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(model.pcr, Test.college, }\DataTypeTok{ncomp =} \DecValTok{10}\NormalTok{)}
+\KeywordTok{mean}\NormalTok{((Test.college[, }\StringTok{"Apps"}\NormalTok{] }\OperatorTok{-}\StringTok{ }\NormalTok{model.pcr.pred)}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 3360184
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Test error is 3360184}
+
+\NormalTok{model.pls <-}\StringTok{ }\KeywordTok{plsr}\NormalTok{(Apps }\OperatorTok{~}\StringTok{ }\NormalTok{Private }\OperatorTok{+}\StringTok{ }\NormalTok{Accept }\OperatorTok{+}\StringTok{ }\NormalTok{Enroll }\OperatorTok{+}\StringTok{ }\NormalTok{Top10perc }\OperatorTok{+}\StringTok{ }\NormalTok{Top25perc }\OperatorTok{+}\StringTok{ }\NormalTok{F.Undergrad }\OperatorTok{+}\StringTok{ }\NormalTok{P.Undergrad }\OperatorTok{+}\StringTok{ }\NormalTok{Outstate }\OperatorTok{+}
+\StringTok{                      }\NormalTok{Room.Board }\OperatorTok{+}\StringTok{ }\NormalTok{Books }\OperatorTok{+}\StringTok{ }\NormalTok{Personal }\OperatorTok{+}\StringTok{ }\NormalTok{PhD }\OperatorTok{+}\StringTok{ }\NormalTok{Terminal }\OperatorTok{+}\StringTok{ }\NormalTok{S.F.Ratio }\OperatorTok{+}\StringTok{ }\NormalTok{perc.alumni }\OperatorTok{+}\StringTok{ }\NormalTok{Expend }\OperatorTok{+}\StringTok{ }\NormalTok{Grad.Rate,}
+                  \DataTypeTok{data =}\NormalTok{ Train.college, }\DataTypeTok{scale=}\NormalTok{T, }\DataTypeTok{validation=}\StringTok{"CV"}\NormalTok{)}
+\KeywordTok{validationplot}\NormalTok{(model.pls, }\DataTypeTok{val.type=}\StringTok{"MSEP"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{problem-set-3---Tom-Hanna_files/figure-latex/unnamed-chunk-1-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{model.pls.pred <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(model.pls, Test.college, }\DataTypeTok{ncomp=}\DecValTok{10}\NormalTok{)}
+\KeywordTok{mean}\NormalTok{((Test.college[, }\StringTok{"Apps"}\NormalTok{] }\OperatorTok{-}\StringTok{ }\NormalTok{model.pls.pred)}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1670383
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#The test error is 1670383}
+
+\CommentTok{#g - Ridge, Lasso, and PLS provide accurate predictions. PCR has a higher error rate. }
+
+\KeywordTok{rm}\NormalTok{(}\DataTypeTok{list =} \KeywordTok{ls}\NormalTok{())}
+\KeywordTok{setwd}\NormalTok{(}\StringTok{"C:/R Studio Files/POLS6394-Machine-Learning/Problem Set 3"}\NormalTok{)}
+
+\KeywordTok{library}\NormalTok{(MASS)}
+\NormalTok{Boston <-}\StringTok{ }\NormalTok{Boston}
+
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{25}\NormalTok{)}
+
+\NormalTok{train.size =}\StringTok{ }\KeywordTok{dim}\NormalTok{(Boston)[}\DecValTok{1}\NormalTok{] }\OperatorTok{/}\StringTok{ }\DecValTok{2}
+\NormalTok{train =}\StringTok{ }\KeywordTok{sample}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\KeywordTok{dim}\NormalTok{(Boston)[}\DecValTok{1}\NormalTok{], train.size)}
+\NormalTok{test =}\StringTok{ }\OperatorTok{-}\NormalTok{train}
+\NormalTok{Train.Boston =}\StringTok{ }\NormalTok{Boston[train, ]}
+\NormalTok{Test.Boston =}\StringTok{ }\NormalTok{Boston[test, ]}
+
+\NormalTok{model1 <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(crim }\OperatorTok{~}\StringTok{ }\NormalTok{zn }\OperatorTok{+}\StringTok{ }\NormalTok{indus }\OperatorTok{+}\StringTok{ }\NormalTok{chas }\OperatorTok{+}\StringTok{ }\NormalTok{nox }\OperatorTok{+}\StringTok{ }\NormalTok{rm }\OperatorTok{+}\StringTok{ }\NormalTok{age }\OperatorTok{+}\StringTok{ }\NormalTok{dis }\OperatorTok{+}\StringTok{ }\NormalTok{rad }\OperatorTok{+}\StringTok{ }\NormalTok{tax }\OperatorTok{+}\StringTok{ }\NormalTok{ptratio }\OperatorTok{+}\StringTok{ }\NormalTok{black }\OperatorTok{+}\StringTok{ }\NormalTok{lstat }\OperatorTok{+}\StringTok{ }\NormalTok{medv,}
+             \DataTypeTok{data =}\NormalTok{ Train.Boston)}
+
+
+\NormalTok{model1.pred <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(model1, Test.Boston)}
+\KeywordTok{mean}\NormalTok{((Test.Boston[, }\StringTok{"crim"}\NormalTok{] }\OperatorTok{-}\StringTok{ }\NormalTok{model1.pred)}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 41.32216
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Test RSS is 41.32216}
+
+\KeywordTok{library}\NormalTok{(glmnet)}
+
+\NormalTok{mat.train <-}\StringTok{ }\KeywordTok{model.matrix}\NormalTok{(crim }\OperatorTok{~}\StringTok{ }\NormalTok{zn }\OperatorTok{+}\StringTok{ }\NormalTok{indus }\OperatorTok{+}\StringTok{ }\NormalTok{chas }\OperatorTok{+}\StringTok{ }\NormalTok{nox }\OperatorTok{+}\StringTok{ }\NormalTok{rm }\OperatorTok{+}\StringTok{ }\NormalTok{age }\OperatorTok{+}\StringTok{ }\NormalTok{dis }\OperatorTok{+}\StringTok{ }\NormalTok{rad }\OperatorTok{+}\StringTok{ }\NormalTok{tax }\OperatorTok{+}\StringTok{ }\NormalTok{ptratio }\OperatorTok{+}\StringTok{ }\NormalTok{black }\OperatorTok{+}\StringTok{ }\NormalTok{lstat }\OperatorTok{+}\StringTok{ }\NormalTok{medv, }\DataTypeTok{data =}\NormalTok{ Train.Boston)}
+\NormalTok{mat.test <-}\StringTok{ }\KeywordTok{model.matrix}\NormalTok{(crim }\OperatorTok{~}\StringTok{ }\NormalTok{zn }\OperatorTok{+}\StringTok{ }\NormalTok{indus }\OperatorTok{+}\StringTok{ }\NormalTok{chas }\OperatorTok{+}\StringTok{ }\NormalTok{nox }\OperatorTok{+}\StringTok{ }\NormalTok{rm }\OperatorTok{+}\StringTok{ }\NormalTok{age }\OperatorTok{+}\StringTok{ }\NormalTok{dis }\OperatorTok{+}\StringTok{ }\NormalTok{rad }\OperatorTok{+}\StringTok{ }\NormalTok{tax }\OperatorTok{+}\StringTok{ }\NormalTok{ptratio }\OperatorTok{+}\StringTok{ }\NormalTok{black }\OperatorTok{+}\StringTok{ }\NormalTok{lstat }\OperatorTok{+}\StringTok{ }\NormalTok{medv, }\DataTypeTok{data =}\NormalTok{ Test.Boston)}
+\NormalTok{grid <-}\StringTok{ }\DecValTok{10} \OperatorTok{^}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{-2}\NormalTok{, }\DataTypeTok{length=}\DecValTok{100}\NormalTok{)}
+\NormalTok{model.ridge <-}\StringTok{ }\KeywordTok{cv.glmnet}\NormalTok{(mat.train, Train.Boston[, }\StringTok{"crim"}\NormalTok{], }\DataTypeTok{alpha=}\DecValTok{0}\NormalTok{, }\DataTypeTok{lambda=}\NormalTok{grid, }\DataTypeTok{thresh=}\FloatTok{1e-12}\NormalTok{)}
+\NormalTok{lambda1 <-}\StringTok{ }\NormalTok{model.ridge}\OperatorTok{$}\NormalTok{lambda.min}
+\NormalTok{lambda1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.1873817
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{model.ridge.pred <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(model.ridge, }\DataTypeTok{newx=}\NormalTok{mat.test, }\DataTypeTok{s=}\NormalTok{lambda1)}
+\KeywordTok{mean}\NormalTok{((Test.Boston[, }\StringTok{"crim"}\NormalTok{] }\OperatorTok{-}\StringTok{ }\NormalTok{model.ridge.pred)}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 41.52214
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Test error is 41.52214}
+
+\NormalTok{model.lasso <-}\StringTok{ }\KeywordTok{cv.glmnet}\NormalTok{(mat.train, Train.Boston[, }\StringTok{"crim"}\NormalTok{], }\DataTypeTok{alpha=}\DecValTok{1}\NormalTok{, }\DataTypeTok{lambda=}\NormalTok{grid, }\DataTypeTok{thresh=}\FloatTok{1e-12}\NormalTok{)}
+\NormalTok{lambda2 <-}\StringTok{ }\NormalTok{model.lasso}\OperatorTok{$}\NormalTok{lambda.min}
+\NormalTok{lambda2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.06135907
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{model.lasso.pred <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(model.lasso, }\DataTypeTok{newx=}\NormalTok{mat.test, }\DataTypeTok{s=}\NormalTok{lambda2)}
+\KeywordTok{mean}\NormalTok{((Test.Boston[, }\StringTok{"crim"}\NormalTok{] }\OperatorTok{-}\StringTok{ }\NormalTok{model.lasso.pred)}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 41.26353
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Test error is 41.26353}
+\CommentTok{#Coefficients:}
+
+\NormalTok{model.lasso <-}\StringTok{ }\KeywordTok{glmnet}\NormalTok{(}\KeywordTok{model.matrix}\NormalTok{(crim }\OperatorTok{~}\StringTok{ }\NormalTok{zn }\OperatorTok{+}\StringTok{ }\NormalTok{indus }\OperatorTok{+}\StringTok{ }\NormalTok{chas }\OperatorTok{+}\StringTok{ }\NormalTok{nox }\OperatorTok{+}\StringTok{ }\NormalTok{rm }\OperatorTok{+}\StringTok{ }\NormalTok{age }\OperatorTok{+}\StringTok{ }\NormalTok{dis }\OperatorTok{+}\StringTok{ }\NormalTok{rad }\OperatorTok{+}\StringTok{ }\NormalTok{tax }\OperatorTok{+}\StringTok{ }\NormalTok{ptratio }\OperatorTok{+}\StringTok{ }\NormalTok{black }\OperatorTok{+}\StringTok{ }\NormalTok{lstat }\OperatorTok{+}\StringTok{ }\NormalTok{medv, }\DataTypeTok{data =}\NormalTok{ Boston), Boston[, }\StringTok{"crim"}\NormalTok{], }\DataTypeTok{alpha=}\DecValTok{1}\NormalTok{)}
+\KeywordTok{predict}\NormalTok{(model.lasso, }\DataTypeTok{s=}\NormalTok{lambda2, }\DataTypeTok{type=}\StringTok{"coefficients"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 15 x 1 sparse Matrix of class "dgCMatrix"
+##                        1
+## (Intercept) 11.968350618
+## (Intercept)  .          
+## zn           0.035212862
+## indus       -0.066930199
+## chas        -0.570351234
+## nox         -6.292517825
+## rm           0.187608148
+## age          .          
+## dis         -0.748763104
+## rad          0.510293154
+## tax          .          
+## ptratio     -0.171162416
+## black       -0.007553759
+## lstat        0.123966707
+## medv        -0.151139614
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(pls)}
+
+\NormalTok{model.pcr <-}\StringTok{ }\KeywordTok{pcr}\NormalTok{(crim }\OperatorTok{~}\StringTok{ }\NormalTok{zn }\OperatorTok{+}\StringTok{ }\NormalTok{indus }\OperatorTok{+}\StringTok{ }\NormalTok{chas }\OperatorTok{+}\StringTok{ }\NormalTok{nox }\OperatorTok{+}\StringTok{ }\NormalTok{rm }\OperatorTok{+}\StringTok{ }\NormalTok{age }\OperatorTok{+}\StringTok{ }\NormalTok{dis }\OperatorTok{+}\StringTok{ }\NormalTok{rad }\OperatorTok{+}\StringTok{ }\NormalTok{tax }\OperatorTok{+}\StringTok{ }\NormalTok{ptratio }\OperatorTok{+}\StringTok{ }\NormalTok{black }\OperatorTok{+}\StringTok{ }\NormalTok{lstat }\OperatorTok{+}\StringTok{ }\NormalTok{medv, }\DataTypeTok{data =}\NormalTok{ Train.Boston, }\DataTypeTok{scale=}\NormalTok{T, }\DataTypeTok{validation=}\StringTok{"CV"}\NormalTok{)}
+\KeywordTok{validationplot}\NormalTok{(model.pcr, }\DataTypeTok{val.type=}\StringTok{"MSEP"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{problem-set-3---Tom-Hanna_files/figure-latex/unnamed-chunk-1-3.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{model.pcr.pred <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(model.pcr, Test.Boston, }\DataTypeTok{ncomp =} \DecValTok{10}\NormalTok{)}
+\KeywordTok{mean}\NormalTok{((Test.Boston[, }\StringTok{"crim"}\NormalTok{] }\OperatorTok{-}\StringTok{ }\NormalTok{model.pcr.pred)}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 43.96352
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Test error is 43.96352}
+
+\NormalTok{model.pls <-}\StringTok{ }\KeywordTok{plsr}\NormalTok{(crim }\OperatorTok{~}\StringTok{ }\NormalTok{zn }\OperatorTok{+}\StringTok{ }\NormalTok{indus }\OperatorTok{+}\StringTok{ }\NormalTok{chas }\OperatorTok{+}\StringTok{ }\NormalTok{nox }\OperatorTok{+}\StringTok{ }\NormalTok{rm }\OperatorTok{+}\StringTok{ }\NormalTok{age }\OperatorTok{+}\StringTok{ }\NormalTok{dis }\OperatorTok{+}\StringTok{ }\NormalTok{rad }\OperatorTok{+}\StringTok{ }\NormalTok{tax }\OperatorTok{+}\StringTok{ }\NormalTok{ptratio }\OperatorTok{+}\StringTok{ }\NormalTok{black }\OperatorTok{+}\StringTok{ }\NormalTok{lstat }\OperatorTok{+}\StringTok{ }\NormalTok{medv, }\DataTypeTok{data =}\NormalTok{ Train.Boston, }\DataTypeTok{scale=}\NormalTok{T, }\DataTypeTok{validation=}\StringTok{"CV"}\NormalTok{)}
+\KeywordTok{validationplot}\NormalTok{(model.pls, }\DataTypeTok{val.type=}\StringTok{"MSEP"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{problem-set-3---Tom-Hanna_files/figure-latex/unnamed-chunk-1-4.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{model.pls.pred <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(model.pls, Test.Boston, }\DataTypeTok{ncomp=}\DecValTok{10}\NormalTok{)}
+\KeywordTok{mean}\NormalTok{((Test.Boston[, }\StringTok{"crim"}\NormalTok{] }\OperatorTok{-}\StringTok{ }\NormalTok{model.pls.pred)}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 41.34152
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#11 -b }
+
+\KeywordTok{library}\NormalTok{ (leaps)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'leaps' was built under R version 4.0.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{regfit.full=}\KeywordTok{regsubsets}\NormalTok{ (crim}\OperatorTok{~}\NormalTok{. ,}\DataTypeTok{data =}\NormalTok{ Train.Boston)}
+
+\NormalTok{reg.summary =}\KeywordTok{summary}\NormalTok{(regfit.full)}
+\NormalTok{reg.summary}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Subset selection object
+## Call: regsubsets.formula(crim ~ ., data = Train.Boston)
+## 13 Variables  (and intercept)
+##         Forced in Forced out
+## zn          FALSE      FALSE
+## indus       FALSE      FALSE
+## chas        FALSE      FALSE
+## nox         FALSE      FALSE
+## rm          FALSE      FALSE
+## age         FALSE      FALSE
+## dis         FALSE      FALSE
+## rad         FALSE      FALSE
+## tax         FALSE      FALSE
+## ptratio     FALSE      FALSE
+## black       FALSE      FALSE
+## lstat       FALSE      FALSE
+## medv        FALSE      FALSE
+## 1 subsets of each size up to 8
+## Selection Algorithm: exhaustive
+##          zn  indus chas nox rm  age dis rad tax ptratio black lstat medv
+## 1  ( 1 ) " " " "   " "  " " " " " " " " "*" " " " "     " "   " "   " " 
+## 2  ( 1 ) " " " "   " "  " " " " " " " " "*" " " " "     " "   "*"   " " 
+## 3  ( 1 ) " " " "   " "  " " " " " " " " "*" " " " "     "*"   "*"   " " 
+## 4  ( 1 ) "*" " "   " "  " " " " " " " " "*" " " " "     "*"   "*"   " " 
+## 5  ( 1 ) "*" " "   " "  " " " " " " "*" "*" " " " "     "*"   "*"   " " 
+## 6  ( 1 ) "*" " "   " "  "*" " " " " "*" "*" " " " "     "*"   "*"   " " 
+## 7  ( 1 ) "*" " "   " "  "*" " " " " "*" "*" " " " "     "*"   "*"   "*" 
+## 8  ( 1 ) "*" " "   " "  "*" " " " " "*" "*" " " "*"     "*"   "*"   "*"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{reg.summary}\OperatorTok{$}\NormalTok{rsq}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.4224482 0.4560671 0.4648444 0.4682357 0.4704521 0.4757076 0.4811685
+## [8] 0.4840637
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow =}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\KeywordTok{plot}\NormalTok{(reg.summary}\OperatorTok{$}\NormalTok{rss ,}\DataTypeTok{xlab=}\StringTok{" Number of Variables "}\NormalTok{,}\DataTypeTok{ylab=}\StringTok{" RSS"}\NormalTok{,}
+       \DataTypeTok{type=}\StringTok{"l"}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(reg.summary}\OperatorTok{$}\NormalTok{adjr2 ,}\DataTypeTok{xlab =}\StringTok{" Number of Variables "}\NormalTok{,}
+       \DataTypeTok{ylab=}\StringTok{" Adjusted RSq"}\NormalTok{,}\DataTypeTok{type=}\StringTok{"l"}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(reg.summary}\OperatorTok{$}\NormalTok{bic ,}\DataTypeTok{xlab =}\StringTok{" Number of Variables "}\NormalTok{,}
+     \DataTypeTok{ylab=}\StringTok{"BIC"}\NormalTok{,}\DataTypeTok{type=}\StringTok{"l"}\NormalTok{)}
+
+\CommentTok{##BIC is minimized with 2 variables. With 2 features, and "rad" and "lstat" produce the best model.}
+
+\CommentTok{#C - No. BIC was minimized with 2 features. }
+
+\CommentTok{##Chapter 7}
+\CommentTok{#3}
+
+\NormalTok{x =}\StringTok{ }\DecValTok{-2}\OperatorTok{:}\DecValTok{2}
+\NormalTok{y =}\StringTok{ }\DecValTok{1} \OperatorTok{+}\StringTok{ }\DecValTok{1}\OperatorTok{*}\NormalTok{x }\OperatorTok{+}\StringTok{ }\DecValTok{-2} \OperatorTok{*}\StringTok{ }\NormalTok{(x}\DecValTok{-1}\NormalTok{)}\OperatorTok{^}\DecValTok{2} \OperatorTok{*}\StringTok{ }\KeywordTok{I}\NormalTok{(x}\OperatorTok{>=}\DecValTok{1}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(x, y)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{problem-set-3---Tom-Hanna_files/figure-latex/unnamed-chunk-1-5.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#4}
+
+\NormalTok{x=}\KeywordTok{seq}\NormalTok{(}\OperatorTok{-}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DataTypeTok{by=}\FloatTok{0.01}\NormalTok{)}
+\NormalTok{y2 =}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x)\{}
+    \CommentTok{# b1(X) = I(0 ≤ X ≤ 2) − (X −1)I(1 ≤ X ≤ 2)}
+    \CommentTok{# b2(X) = (X −3)I(3 ≤ X ≤ 4)+I(4 < X ≤ 5)}
+    \DecValTok{1} \OperatorTok{+}\StringTok{ }\NormalTok{(}\KeywordTok{I}\NormalTok{(x}\OperatorTok{>=}\DecValTok{0} \OperatorTok{&&}\StringTok{ }\NormalTok{x}\OperatorTok{<=}\DecValTok{2}\NormalTok{) }\OperatorTok{-}\StringTok{ }\NormalTok{((x}\DecValTok{-1}\NormalTok{)}\OperatorTok{*}\KeywordTok{I}\NormalTok{(x}\OperatorTok{>=}\DecValTok{1} \OperatorTok{&&}\StringTok{ }\NormalTok{x}\OperatorTok{<=}\DecValTok{2}\NormalTok{))) }\OperatorTok{+}\StringTok{ }\DecValTok{3}\OperatorTok{*}\NormalTok{((x}\DecValTok{-3}\NormalTok{)}\OperatorTok{*}\KeywordTok{I}\NormalTok{(x}\OperatorTok{>=}\DecValTok{3} \OperatorTok{&&}\StringTok{ }\NormalTok{x}\OperatorTok{<=}\DecValTok{4}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{I}\NormalTok{(x}\OperatorTok{>}\DecValTok{4} \OperatorTok{&&}\StringTok{ }\NormalTok{x}\OperatorTok{<=}\DecValTok{5}\NormalTok{))}
+\NormalTok{\}}
+\NormalTok{yp =}\StringTok{ }\KeywordTok{sapply}\NormalTok{(x,}\DataTypeTok{FUN=}\NormalTok{y2)}
+\KeywordTok{plot}\NormalTok{(x,yp,}\DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{),}\DataTypeTok{ylim=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\FloatTok{2.5}\NormalTok{))}
+\CommentTok{#points(x=x,y=y(x),pch=19,col="red")}
+
+\CommentTok{#9}
+\CommentTok{#A - }
+\NormalTok{model1 <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(nox }\OperatorTok{~}\StringTok{ }\KeywordTok{poly}\NormalTok{(dis, }\DecValTok{3}\NormalTok{), }\DataTypeTok{data =}\NormalTok{ Boston)}
+\NormalTok{model1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = nox ~ poly(dis, 3), data = Boston)
+## 
+## Coefficients:
+##   (Intercept)  poly(dis, 3)1  poly(dis, 3)2  poly(dis, 3)3  
+##        0.5547        -2.0031         0.8563        -0.3180
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#B - }
+
+\NormalTok{model2 <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(nox }\OperatorTok{~}\StringTok{ }\KeywordTok{poly}\NormalTok{(dis,}\DecValTok{2}\NormalTok{), }\DataTypeTok{data =}\NormalTok{ Boston)}
+\NormalTok{model3 <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(nox }\OperatorTok{~}\StringTok{ }\KeywordTok{poly}\NormalTok{(dis,}\DecValTok{3}\NormalTok{), }\DataTypeTok{data =}\NormalTok{ Boston)}
+\NormalTok{model4 <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(nox }\OperatorTok{~}\StringTok{ }\KeywordTok{poly}\NormalTok{(dis,}\DecValTok{4}\NormalTok{), }\DataTypeTok{data =}\NormalTok{ Boston)}
+\NormalTok{model5 <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(nox }\OperatorTok{~}\StringTok{ }\KeywordTok{poly}\NormalTok{(dis,}\DecValTok{5}\NormalTok{), }\DataTypeTok{data =}\NormalTok{ Boston)}
+\NormalTok{model6 <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(nox }\OperatorTok{~}\StringTok{ }\KeywordTok{poly}\NormalTok{(dis,}\DecValTok{6}\NormalTok{), }\DataTypeTok{data =}\NormalTok{ Boston)}
+\NormalTok{model7 <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(nox }\OperatorTok{~}\StringTok{ }\KeywordTok{poly}\NormalTok{(dis,}\DecValTok{7}\NormalTok{), }\DataTypeTok{data =}\NormalTok{ Boston)}
+\NormalTok{model8 <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(nox }\OperatorTok{~}\StringTok{ }\KeywordTok{poly}\NormalTok{(dis,}\DecValTok{8}\NormalTok{), }\DataTypeTok{data =}\NormalTok{ Boston)}
+\NormalTok{model9 <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(nox }\OperatorTok{~}\StringTok{ }\KeywordTok{poly}\NormalTok{(dis,}\DecValTok{9}\NormalTok{), }\DataTypeTok{data =}\NormalTok{ Boston)}
+\NormalTok{model10 <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(nox }\OperatorTok{~}\StringTok{ }\KeywordTok{poly}\NormalTok{(dis,}\DecValTok{10}\NormalTok{), }\DataTypeTok{data =}\NormalTok{ Boston)}
+
+\KeywordTok{anova}\NormalTok{(model1)[}\StringTok{"Residuals"}\NormalTok{, }\StringTok{"Sum Sq"}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.934107
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{anova}\NormalTok{(model2)[}\StringTok{"Residuals"}\NormalTok{, }\StringTok{"Sum Sq"}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2.035262
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{anova}\NormalTok{(model3)[}\StringTok{"Residuals"}\NormalTok{, }\StringTok{"Sum Sq"}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.934107
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{anova}\NormalTok{(model4)[}\StringTok{"Residuals"}\NormalTok{, }\StringTok{"Sum Sq"}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.932981
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{anova}\NormalTok{(model5)[}\StringTok{"Residuals"}\NormalTok{, }\StringTok{"Sum Sq"}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.91529
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{anova}\NormalTok{(model6)[}\StringTok{"Residuals"}\NormalTok{, }\StringTok{"Sum Sq"}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.878257
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{anova}\NormalTok{(model7)[}\StringTok{"Residuals"}\NormalTok{, }\StringTok{"Sum Sq"}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.849484
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{anova}\NormalTok{(model8)[}\StringTok{"Residuals"}\NormalTok{, }\StringTok{"Sum Sq"}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.83563
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{anova}\NormalTok{(model9)[}\StringTok{"Residuals"}\NormalTok{, }\StringTok{"Sum Sq"}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.833331
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{anova}\NormalTok{(model10)[}\StringTok{"Residuals"}\NormalTok{, }\StringTok{"Sum Sq"}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.832171
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#c - }
+\KeywordTok{library}\NormalTok{(ISLR)}
+\NormalTok{set.seed=(}\DecValTok{45}\NormalTok{)}
+\NormalTok{train=}\KeywordTok{sample}\NormalTok{ (}\DecValTok{405}\NormalTok{,}\DecValTok{101}\NormalTok{)}
+
+\NormalTok{model1 <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(nox }\OperatorTok{~}\StringTok{ }\KeywordTok{poly}\NormalTok{(dis,}\DecValTok{1}\NormalTok{), }\DataTypeTok{data =}\NormalTok{ Boston, }\DataTypeTok{subset =}\NormalTok{train)   }
+\NormalTok{model2 <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(nox }\OperatorTok{~}\StringTok{ }\KeywordTok{poly}\NormalTok{(dis,}\DecValTok{2}\NormalTok{), }\DataTypeTok{data =}\NormalTok{ Boston, }\DataTypeTok{subset =}\NormalTok{train)}
+\NormalTok{model3 <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(nox }\OperatorTok{~}\StringTok{ }\KeywordTok{poly}\NormalTok{(dis,}\DecValTok{3}\NormalTok{), }\DataTypeTok{data =}\NormalTok{ Boston, }\DataTypeTok{subset =}\NormalTok{train)}
+\NormalTok{model4 <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(nox }\OperatorTok{~}\StringTok{ }\KeywordTok{poly}\NormalTok{(dis,}\DecValTok{4}\NormalTok{), }\DataTypeTok{data =}\NormalTok{ Boston, }\DataTypeTok{subset =}\NormalTok{train)}
+\NormalTok{model5 <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(nox }\OperatorTok{~}\StringTok{ }\KeywordTok{poly}\NormalTok{(dis,}\DecValTok{5}\NormalTok{), }\DataTypeTok{data =}\NormalTok{ Boston, }\DataTypeTok{subset =}\NormalTok{train)}
+\NormalTok{model6 <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(nox }\OperatorTok{~}\StringTok{ }\KeywordTok{poly}\NormalTok{(dis,}\DecValTok{6}\NormalTok{), }\DataTypeTok{data =}\NormalTok{ Boston, }\DataTypeTok{subset =}\NormalTok{train)}
+\NormalTok{model7 <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(nox }\OperatorTok{~}\StringTok{ }\KeywordTok{poly}\NormalTok{(dis,}\DecValTok{7}\NormalTok{), }\DataTypeTok{data =}\NormalTok{ Boston, }\DataTypeTok{subset =}\NormalTok{train)}
+\NormalTok{model8 <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(nox }\OperatorTok{~}\StringTok{ }\KeywordTok{poly}\NormalTok{(dis,}\DecValTok{8}\NormalTok{), }\DataTypeTok{data =}\NormalTok{ Boston, }\DataTypeTok{subset =}\NormalTok{train)}
+\NormalTok{model9 <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(nox }\OperatorTok{~}\StringTok{ }\KeywordTok{poly}\NormalTok{(dis,}\DecValTok{9}\NormalTok{), }\DataTypeTok{data =}\NormalTok{ Boston, }\DataTypeTok{subset =}\NormalTok{train)}
+\NormalTok{model10 <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(nox }\OperatorTok{~}\StringTok{ }\KeywordTok{poly}\NormalTok{(dis,}\DecValTok{10}\NormalTok{), }\DataTypeTok{data =}\NormalTok{ Boston, }\DataTypeTok{subset =}\NormalTok{train)}
+
+\KeywordTok{mean}\NormalTok{((Boston}\OperatorTok{$}\NormalTok{nox }\OperatorTok{-}\StringTok{ }\KeywordTok{predict}\NormalTok{(model1,Boston))[}\OperatorTok{-}\NormalTok{train]}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.006026416
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{mean}\NormalTok{((Boston}\OperatorTok{$}\NormalTok{nox }\OperatorTok{-}\StringTok{ }\KeywordTok{predict}\NormalTok{(model2,Boston))[}\OperatorTok{-}\NormalTok{train]}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.004310486
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{mean}\NormalTok{((Boston}\OperatorTok{$}\NormalTok{nox }\OperatorTok{-}\StringTok{ }\KeywordTok{predict}\NormalTok{(model3,Boston))[}\OperatorTok{-}\NormalTok{train]}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.004150605
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{mean}\NormalTok{((Boston}\OperatorTok{$}\NormalTok{nox }\OperatorTok{-}\StringTok{ }\KeywordTok{predict}\NormalTok{(model4,Boston))[}\OperatorTok{-}\NormalTok{train]}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.004337492
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{mean}\NormalTok{((Boston}\OperatorTok{$}\NormalTok{nox }\OperatorTok{-}\StringTok{ }\KeywordTok{predict}\NormalTok{(model5,Boston))[}\OperatorTok{-}\NormalTok{train]}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.004282151
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{mean}\NormalTok{((Boston}\OperatorTok{$}\NormalTok{nox }\OperatorTok{-}\StringTok{ }\KeywordTok{predict}\NormalTok{(model6,Boston))[}\OperatorTok{-}\NormalTok{train]}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.004308835
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{mean}\NormalTok{((Boston}\OperatorTok{$}\NormalTok{nox }\OperatorTok{-}\StringTok{ }\KeywordTok{predict}\NormalTok{(model7,Boston))[}\OperatorTok{-}\NormalTok{train]}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.004376609
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{mean}\NormalTok{((Boston}\OperatorTok{$}\NormalTok{nox }\OperatorTok{-}\StringTok{ }\KeywordTok{predict}\NormalTok{(model8,Boston))[}\OperatorTok{-}\NormalTok{train]}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.01291827
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{mean}\NormalTok{((Boston}\OperatorTok{$}\NormalTok{nox }\OperatorTok{-}\StringTok{ }\KeywordTok{predict}\NormalTok{(model9,Boston))[}\OperatorTok{-}\NormalTok{train]}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.0579271
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{mean}\NormalTok{((Boston}\OperatorTok{$}\NormalTok{nox }\OperatorTok{-}\StringTok{ }\KeywordTok{predict}\NormalTok{(model10,Boston))[}\OperatorTok{-}\NormalTok{train]}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.06482916
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#The validation error is lowest with the 3rd degree polynomial, model3.}
+
+\CommentTok{#d - }
+
+\KeywordTok{summary}\NormalTok{(Train.Boston}\OperatorTok{$}\NormalTok{dis)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   1.130   1.993   3.099   3.688   5.212  10.586
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{ (splines )}
+
+\NormalTok{model.spline <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(nox }\OperatorTok{~}\StringTok{ }\KeywordTok{bs}\NormalTok{(dis,}\DataTypeTok{df=}\DecValTok{4}\NormalTok{,}\DataTypeTok{knots =}\KeywordTok{c}\NormalTok{(}\FloatTok{2.197}\NormalTok{,}\FloatTok{3.272}\NormalTok{,}\FloatTok{5.117}\NormalTok{)), }\DataTypeTok{data =}\NormalTok{ Train.Boston)}
+\NormalTok{pred <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(model.spline,}\DataTypeTok{newdata=}\NormalTok{Test.Boston,}\DataTypeTok{se=}\NormalTok{T)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in bs(dis, degree = 3L, knots = c(2.197, 3.272, 5.117), Boundary.knots
+## = c(1.1296, : some 'x' values beyond boundary knots may cause ill-conditioned
+## bases
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{attach}\NormalTok{(Test.Boston)}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow =}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{problem-set-3---Tom-Hanna_files/figure-latex/unnamed-chunk-1-6.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(dis,nox,}\DataTypeTok{col=}\StringTok{"gray"}\NormalTok{)}
+\KeywordTok{lines}\NormalTok{(Test.Boston}\OperatorTok{$}\NormalTok{dis,pred}\OperatorTok{$}\NormalTok{fit,}\DataTypeTok{lwd=}\DecValTok{2}\NormalTok{)}
+\KeywordTok{lines}\NormalTok{(Test.Boston}\OperatorTok{$}\NormalTok{dis,pred}\OperatorTok{$}\NormalTok{fit }\OperatorTok{+}\DecValTok{2}\OperatorTok{*}\StringTok{ }\NormalTok{pred}\OperatorTok{$}\NormalTok{se.fit,}\DataTypeTok{lty=}\StringTok{"dashed"}\NormalTok{)}
+\KeywordTok{lines}\NormalTok{(Test.Boston}\OperatorTok{$}\NormalTok{dis,pred}\OperatorTok{$}\NormalTok{fit }\DecValTok{-2}\OperatorTok{*}\StringTok{ }\NormalTok{pred}\OperatorTok{$}\NormalTok{se.fit,}\DataTypeTok{lty=}\StringTok{"dashed"}\NormalTok{)}
+
+\CommentTok{#I placed the knots at the quartiles for dis}
+
+
+\NormalTok{model.spline6 <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(nox }\OperatorTok{~}\StringTok{ }\KeywordTok{bs}\NormalTok{(dis,}\DataTypeTok{df=}\DecValTok{6}\NormalTok{), }\DataTypeTok{data =}\NormalTok{ Train.Boston)}
+\NormalTok{pred6 <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(model.spline6,}\DataTypeTok{newdata=}\NormalTok{Test.Boston,}\DataTypeTok{se=}\NormalTok{T)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in bs(dis, degree = 3L, knots = c(`25%` = 1.9929, `50%` = 3.0992, : some
+## 'x' values beyond boundary knots may cause ill-conditioned bases
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(dis,nox,}\DataTypeTok{col=}\StringTok{"gray"}\NormalTok{)}
+\KeywordTok{lines}\NormalTok{(Test.Boston}\OperatorTok{$}\NormalTok{dis,pred6}\OperatorTok{$}\NormalTok{fit,}\DataTypeTok{lwd=}\DecValTok{2}\NormalTok{)}
+\KeywordTok{lines}\NormalTok{(Test.Boston}\OperatorTok{$}\NormalTok{dis,pred6}\OperatorTok{$}\NormalTok{fit }\OperatorTok{+}\DecValTok{2}\OperatorTok{*}\StringTok{ }\NormalTok{pred}\OperatorTok{$}\NormalTok{se.fit,}\DataTypeTok{lty=}\StringTok{"dashed"}\NormalTok{)}
+\KeywordTok{lines}\NormalTok{(Test.Boston}\OperatorTok{$}\NormalTok{dis,pred6}\OperatorTok{$}\NormalTok{fit }\DecValTok{-2}\OperatorTok{*}\StringTok{ }\NormalTok{pred}\OperatorTok{$}\NormalTok{se.fit,}\DataTypeTok{lty=}\StringTok{"dashed"}\NormalTok{)}
+
+\NormalTok{model.spline8 <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(nox }\OperatorTok{~}\StringTok{ }\KeywordTok{bs}\NormalTok{(dis,}\DataTypeTok{df=}\DecValTok{8}\NormalTok{), }\DataTypeTok{data =}\NormalTok{ Train.Boston)}
+\NormalTok{pred8 <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(model.spline8,}\DataTypeTok{newdata=}\NormalTok{Test.Boston,}\DataTypeTok{se=}\NormalTok{T)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in bs(dis, degree = 3L, knots = c(`16.66667%` = 1.8629, `33.33333%` =
+## 2.2222, : some 'x' values beyond boundary knots may cause ill-conditioned bases
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(dis,nox,}\DataTypeTok{col=}\StringTok{"gray"}\NormalTok{)}
+\KeywordTok{lines}\NormalTok{(Test.Boston}\OperatorTok{$}\NormalTok{dis,pred8}\OperatorTok{$}\NormalTok{fit,}\DataTypeTok{lwd=}\DecValTok{2}\NormalTok{)}
+\KeywordTok{lines}\NormalTok{(Test.Boston}\OperatorTok{$}\NormalTok{dis,pred8}\OperatorTok{$}\NormalTok{fit }\OperatorTok{+}\DecValTok{2}\OperatorTok{*}\StringTok{ }\NormalTok{pred}\OperatorTok{$}\NormalTok{se.fit,}\DataTypeTok{lty=}\StringTok{"dashed"}\NormalTok{)}
+\KeywordTok{lines}\NormalTok{(Test.Boston}\OperatorTok{$}\NormalTok{dis,pred8}\OperatorTok{$}\NormalTok{fit }\DecValTok{-2}\OperatorTok{*}\StringTok{ }\NormalTok{pred}\OperatorTok{$}\NormalTok{se.fit,}\DataTypeTok{lty=}\StringTok{"dashed"}\NormalTok{)}
+
+
+\NormalTok{model.spline10 <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(nox }\OperatorTok{~}\StringTok{ }\KeywordTok{bs}\NormalTok{(dis,}\DataTypeTok{df=}\DecValTok{10}\NormalTok{), }\DataTypeTok{data =}\NormalTok{ Train.Boston)}
+\NormalTok{pred10 <-}\StringTok{ }\KeywordTok{predict}\NormalTok{(model.spline10,}\DataTypeTok{newdata=}\NormalTok{Test.Boston,}\DataTypeTok{se=}\NormalTok{T)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in bs(dis, degree = 3L, knots = c(`12.5%` = 1.74435, `25%` = 1.9929, :
+## some 'x' values beyond boundary knots may cause ill-conditioned bases
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(dis,nox,}\DataTypeTok{col=}\StringTok{"gray"}\NormalTok{)}
+\KeywordTok{lines}\NormalTok{(Test.Boston}\OperatorTok{$}\NormalTok{dis,pred10}\OperatorTok{$}\NormalTok{fit,}\DataTypeTok{lwd=}\DecValTok{2}\NormalTok{)}
+\KeywordTok{lines}\NormalTok{(Test.Boston}\OperatorTok{$}\NormalTok{dis,pred10}\OperatorTok{$}\NormalTok{fit }\OperatorTok{+}\DecValTok{2}\OperatorTok{*}\StringTok{ }\NormalTok{pred}\OperatorTok{$}\NormalTok{se.fit,}\DataTypeTok{lty=}\StringTok{"dashed"}\NormalTok{)}
+\KeywordTok{lines}\NormalTok{(Test.Boston}\OperatorTok{$}\NormalTok{dis,pred10}\OperatorTok{$}\NormalTok{fit }\DecValTok{-2}\OperatorTok{*}\StringTok{ }\NormalTok{pred}\OperatorTok{$}\NormalTok{se.fit,}\DataTypeTok{lty=}\StringTok{"dashed"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{problem-set-3---Tom-Hanna_files/figure-latex/unnamed-chunk-1-7.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{anova}\NormalTok{(model.spline)[}\StringTok{"Residuals"}\NormalTok{, }\StringTok{"Sum Sq"}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.029811
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{anova}\NormalTok{(model.spline6)[}\StringTok{"Residuals"}\NormalTok{, }\StringTok{"Sum Sq"}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.02421
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{anova}\NormalTok{(model.spline8)[}\StringTok{"Residuals"}\NormalTok{, }\StringTok{"Sum Sq"}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.9942262
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{anova}\NormalTok{(model.spline10)[}\StringTok{"Residuals"}\NormalTok{, }\StringTok{"Sum Sq"}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.9792116
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#The model with 10 degrees of freedom had the lowest RSS. }
+
+\CommentTok{#10A}
+
+\KeywordTok{rm}\NormalTok{(}\DataTypeTok{list =} \KeywordTok{ls}\NormalTok{())}
+\KeywordTok{setwd}\NormalTok{(}\StringTok{"C:/R Studio Files/POLS6394-Machine-Learning/Problem Set 3"}\NormalTok{)}
+\KeywordTok{library}\NormalTok{(leaps)}
+
+\NormalTok{College <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"C:/R Studio Files/POLS6394-Machine-Learning/Problem Set 3/College.csv"}\NormalTok{)}
+\KeywordTok{names}\NormalTok{(College)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "X"           "Private"     "Apps"        "Accept"      "Enroll"     
+##  [6] "Top10perc"   "Top25perc"   "F.Undergrad" "P.Undergrad" "Outstate"   
+## [11] "Room.Board"  "Books"       "Personal"    "PhD"         "Terminal"   
+## [16] "S.F.Ratio"   "perc.alumni" "Expend"      "Grad.Rate"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{attach}\NormalTok{(College)}
+
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{25}\NormalTok{)}
+\NormalTok{train <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(}\KeywordTok{length}\NormalTok{(Outstate), }\KeywordTok{length}\NormalTok{(Outstate)}\OperatorTok{/}\DecValTok{2}\NormalTok{)}
+\NormalTok{test <-}\StringTok{ }\OperatorTok{-}\NormalTok{train}
+\NormalTok{Train.College <-}\StringTok{ }\NormalTok{College[train, ]}
+\NormalTok{Test.College <-}\StringTok{ }\NormalTok{College[test, ]}
+\NormalTok{reg.fit <-}\StringTok{ }\KeywordTok{regsubsets}\NormalTok{(Outstate }\OperatorTok{~}\StringTok{ }\NormalTok{., }\DataTypeTok{data =}\NormalTok{ Train.College, }\DataTypeTok{nvmax =} \DecValTok{17}\NormalTok{, }\DataTypeTok{method =} \StringTok{"forward"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in leaps.setup(x, y, wt = wt, nbest = nbest, nvmax = nvmax, force.in =
+## force.in, : 17 linear dependencies found
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{reg.summary <-}\StringTok{ }\KeywordTok{summary}\NormalTok{(reg.fit)}
+
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow =} \KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+
+\KeywordTok{plot}\NormalTok{(reg.summary}\OperatorTok{$}\NormalTok{bic, }\DataTypeTok{xlab =} \StringTok{"Variables"}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{"BIC"}\NormalTok{, }\DataTypeTok{type =} \StringTok{"l"}\NormalTok{)}
+\NormalTok{min.bic <-}\StringTok{ }\KeywordTok{min}\NormalTok{(reg.summary}\OperatorTok{$}\NormalTok{bic)}
+\NormalTok{std.bic <-}\StringTok{ }\KeywordTok{sd}\NormalTok{(reg.summary}\OperatorTok{$}\NormalTok{bic)}
+\KeywordTok{abline}\NormalTok{(}\DataTypeTok{h =}\NormalTok{ min.bic }\OperatorTok{+}\StringTok{ }\FloatTok{0.2} \OperatorTok{*}\StringTok{ }\NormalTok{std.bic, }\DataTypeTok{col =} \StringTok{"red"}\NormalTok{, }\DataTypeTok{lty =} \DecValTok{2}\NormalTok{)}
+\KeywordTok{abline}\NormalTok{(}\DataTypeTok{h =}\NormalTok{ min.bic }\OperatorTok{-}\StringTok{ }\FloatTok{0.2} \OperatorTok{*}\StringTok{ }\NormalTok{std.bic, }\DataTypeTok{col =} \StringTok{"red"}\NormalTok{, }\DataTypeTok{lty =} \DecValTok{2}\NormalTok{)}
+
+\KeywordTok{plot}\NormalTok{(reg.summary}\OperatorTok{$}\NormalTok{adjr2, }\DataTypeTok{xlab =} \StringTok{"Variables"}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{"Adjusted R2"}\NormalTok{, }
+     \DataTypeTok{type =} \StringTok{"l"}\NormalTok{, }\DataTypeTok{ylim =} \KeywordTok{c}\NormalTok{(}\FloatTok{0.4}\NormalTok{, }\FloatTok{0.84}\NormalTok{))}
+\NormalTok{max.adjr2 <-}\StringTok{ }\KeywordTok{max}\NormalTok{(reg.summary}\OperatorTok{$}\NormalTok{adjr2)}
+\NormalTok{std.adjr2 <-}\StringTok{ }\KeywordTok{sd}\NormalTok{(reg.summary}\OperatorTok{$}\NormalTok{adjr2)}
+\KeywordTok{abline}\NormalTok{(}\DataTypeTok{h =}\NormalTok{ max.adjr2 }\OperatorTok{+}\StringTok{ }\FloatTok{0.2} \OperatorTok{*}\StringTok{ }\NormalTok{std.adjr2, }\DataTypeTok{col =} \StringTok{"red"}\NormalTok{, }\DataTypeTok{lty =} \DecValTok{2}\NormalTok{)}
+\KeywordTok{abline}\NormalTok{(}\DataTypeTok{h =}\NormalTok{ max.adjr2 }\OperatorTok{-}\StringTok{ }\FloatTok{0.2} \OperatorTok{*}\StringTok{ }\NormalTok{std.adjr2, }\DataTypeTok{col =} \StringTok{"red"}\NormalTok{, }\DataTypeTok{lty =} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{problem-set-3---Tom-Hanna_files/figure-latex/unnamed-chunk-1-8.pdf}
+
+\end{document}
