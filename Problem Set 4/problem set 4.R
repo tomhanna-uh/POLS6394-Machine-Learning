@@ -4,6 +4,136 @@ options(scipen = 999)
 
 setwd("C:/R Studio Files/POLS6394-Machine-Learning/Problem Set 4")
 
+#Neural Networks
+
+#1
+
+
+#2
+
+library(ISLR)
+library(caret)
+library(skimr)
+
+View(Default)
+
+#a
+
+train = 1:8000
+Train.Default = Default[train, ]
+Test.Default = Default[-train, ]
+
+skim(Train.Default)
+skim(Test.Default)
+
+#b
+
+preprocess.missingdata.model <- preProcess(Train.Default, method = 'knnImpute')
+preprocess.missingdata.model
+
+library(RANN)
+
+Train.Default <- predict(preprocess.missingdata.model, newdata = Train.Default)
+
+anyNA(Train.Default)
+
+
+dummies_model <- dummyVars( ~ ., data = Train.Default)
+
+trainData_mat <- predict(dummies_model, newdata = Train.Default)
+
+Train.Data <- data.frame(trainData_mat)
+str(Train.Data)
+
+preProcess_range_model <- preProcess(Train.Data, method = "range")
+Train.Data <- predict(preProcess_range_model, newdata = Train.Data)
+skim(Train.Data)
+
+##Wasted a lot of time getting errors because of the "default" variable. Tried including it in
+##one hot encoding, tried converting to a binary numeric factor before preprocessing,
+##Finally managed to get preprocessing done and model to converge by doing this
+##Better method???
+
+Train.Data <- subset(Train.Data, select = -c(default.Yes,default.No))
+Train.Data$default <- Train.Default$default
+str(Train.Data$default)
+
+#c
+
+library(e1071)
+
+set.seed(75)
+
+modelnn <- train(default ~ ., data = Train.Data, method='nnet')
+
+prednn1 <- predict(modelnn, Train.Data)
+modelnn
+
+plot(modelnn, main = "Model Accuracies with NNet")
+
+##Pre-process Test Data
+
+TestData2 <- predict(preprocess.missingdata.model, Test.Default)
+
+TestData3 <- predict(dummies_model, TestData2)
+
+TestData4 <- predict(preProcess_range_model, TestData3)
+
+TestData4 <- data.frame(TestData4)
+
+Test.Data <- subset(TestData4, select = -c(default.Yes,default.No))
+Test.Data$default <- Test.Default$default
+str(Test.Data$default)
+
+prednn2 <- predict(modelnn, Test.Data)
+head(prednn2)
+
+outcome <- factor(Test.Data$default, levels = c("Yes","No"))
+confusionMatrix(reference = outcome, data = prednn2, mode = "everything", positive = 'Yes')   
+
+##Accuracy is high, but sensitivity is low. It missed a lot of positive predictions, getting 24 correct
+##out of 67 actual positives, a sensitivity of .3582.
+
+#d
+
+fitControl <- trainControl(
+    method = "cv",
+    number = 10,
+    savePredictions = "final",
+    classProbs = T,
+    summaryFunction = twoClassSummary
+)
+
+set.seed(75)
+model_nnet_cv <- train(default ~ ., data = Train.Data, method = "nnet", metric = "ROC",
+                       trControl = fitControl, trace = FALSE)
+
+model_nnet_cv
+
+plot(model_nnet_cv, main = "Model ROC with NNet")
+
+
+#best model is unchanged - size 3 and decay .1
+
+#e
+
+set.seed(75)
+
+model.boost <- train(default ~ ., data = Train.Data, method = "adaboost", tuneLength = 2, 
+                     trControl = fitControl)
+model.boost
+
+#The best ROC with boosting was .9192, quite a bit less than the best ROC of ~ .96 with NNet
+
+model.rf <- train(default ~ ., data = Train.Data, method = "rf", tunelength = 5, trControl = fitControl)
+model.rf
+
+#The best ROC with random forest was 0.8980, considerably less than the best ROC of ~ .96 with NNet.
+
+
+
+#Chapter 8
+
 #4
 
 #a
